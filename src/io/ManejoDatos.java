@@ -7,6 +7,8 @@ package io;
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -14,18 +16,14 @@ import java.util.Scanner;
  * @author usuario
  */
 public class ManejoDatos {
+    
    
-   BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-   Scanner s = new Scanner(System.in);
+   public BufferedReader in = new BufferedReader(new InputStreamReader(System.in));;
+   public Scanner s = new Scanner(System.in);
    
    
-   public  String insetarTexto() throws IOException{
-       String readLine = in.readLine();
-       return readLine; 
-    }
-    void insertarInt(){
-        s.nextInt();
-        
-    }
+   
 }
+
+   
 

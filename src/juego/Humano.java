@@ -5,13 +5,21 @@
  */
 package juego;
 
+
 /**
  *
  * @author usuario
  */
 public class Humano extends Player{
-    
-    public Humano(){
-    System.out.println("Se ha creado un Humano");
+    //CONSTRUCTOR
+    public Humano(String name, int attackPoints, int defensePoints, int life){
+        super(name, attackPoints, defensePoints, life);
+        System.out.println("Se ha creado un Humano");
+       
+    }
+   
+    @Override
+    public String toString(){
+        return this.getName() + " PA:" + this.getAttackPoints() + " / PD:" + this.getDefensePoints() + " / PV:" + this.getLife();
     }
 }
