@@ -19,7 +19,20 @@ public class Warrior extends Humano{
     }
     
     @Override
-    public String toString(){
-        return this.getName() + " PA:" + this.getAttackPoints() + " / PD:" + this.getDefensePoints() + " / PV:" + this.getLife();
-    }
+    protected void hit(int attackPoints){
+           int dañocausado = attackPoints-getDefensePoints();
+           if (dañocausado < 5){
+           dañocausado = 0;
+           }
+           
+           
+           System.out.print(getName() + " es golpeado con " + attackPoints + " puntos i se defiende con " + getDefensePoints() + ". Vidas: "+ getLife() + " - " + dañocausado);
+           
+           setLife(getLife() - dañocausado);                   
+           if (getLife() < 0){
+           setLife(0);
+           }
+           System.out.println(" = " + getLife());
+           
+       }
 }

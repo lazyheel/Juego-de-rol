@@ -19,7 +19,26 @@ public class Alien extends Player{
     }
     
     @Override
-    public String toString(){
-        return this.getName() + " PA:" + this.getAttackPoints() + " / PD:" + this.getDefensePoints() + " / PV:" + this.getLife();
+    public void attack(Player p){
+        System.out.println("-------------------------INICIO ATAQUE------------------------------");
+        System.out.println("Atacante: "+ this.toString());
+        System.out.println("Defensor: "+ p.toString());
+        if(getLife() > 20){
+            setAttackPoints(getAttackPoints()+3);
+            setDefensePoints(getDefensePoints()-3);
+                if(getDefensePoints() < 0){
+                    setDefensePoints(0);
+                }
+        }
+        p.hit(getAttackPoints());
+        
+        if (p.getLife() > 0){
+            this.hit(p.getAttackPoints());            
+        }
+        System.out.println("Atacante: "+ this.toString());
+        System.out.println("Defensor: "+ p.toString());
+        System.out.println("--------------------------FIN ATAQUE-------------------------------\n");
     }
+
+
 }

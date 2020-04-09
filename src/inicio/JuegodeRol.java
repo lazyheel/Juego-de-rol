@@ -31,31 +31,43 @@ public class JuegodeRol {
     }
     
     public static void pruebaFase() throws IOException{
-        System.out.println("Se está creando un Alien");
-        Alien a1 = new Alien("Sultan",10,5,60);
-        System.out.println("Se está creando un Humano");
-        Humano h1 = new Humano("Jose",6,3,90);
+        
+        Alien a1 = new Alien("Sultan",10,7,60);
+        System.out.println(a1.toString());
+        Alien a2 = new Alien("Obelio",12,5,65);
+        System.out.println(a2.toString());
+        Alien a3 = new Alien("Sinfano",9,9,55);
+        System.out.println(a3.toString());
+        Humano h1 = new Humano("Jose",6,3,120);
+        System.out.println(h1.toString());
+        Humano h2 = new Humano("Miguel",8,6,98);
+        System.out.println(h2.toString());
+        Humano h3 = new Humano("Jose",10,5,90);
+        System.out.println(h3.toString());
         System.out.println("Se está creando un Warrior");
-        Warrior w1 = new Warrior("Popeye",12,4,70);
+        Warrior w1 = new Warrior("Popeye",12,12,90);
+        System.out.println(w1.toString());
+        Warrior w2 = new Warrior("Brutus",12,9,110);
+        System.out.println(w2.toString());
+        Warrior w3 = new Warrior("Sandocan",12,10,100);
+        System.out.println(w3.toString());
         
         
-        int a1vida = a1.getLife();
-        int h1vida = h1.getLife();
-        int w1vida = w1.getLife();
+        
         
         
         
         
         
         w1.attack(a1);
-        w1.attack(h1);
+        w3.attack(h1);
+        a3.attack(w2);
+        a1.attack(h2);
+        h2.attack(w1);
+        h2.attack(a1);
         a1.attack(w1);
-        a1.attack(h1);
-        h1.attack(w1);
-        h1.attack(a1);
-        a1.attack(w1);
-        w1.attack(a1);
-        a1.attack(h1);
+        w2.attack(a3);
+        a2.attack(h3);
         h1.attack(a1);
         a1.attack(w1);
         if(w1.getLife() < 0){System.out.println("Error en los puntos de vida del Warrior ");}

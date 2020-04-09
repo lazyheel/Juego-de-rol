@@ -5,6 +5,8 @@
  */
 package juego;
 
+import io.ManejoDatos;
+
 /**
  *
  * @author usuario
@@ -24,6 +26,23 @@ abstract public class Player {
         this.life=life;    
     
     }
+    //CONSTRUCTOR HUMANO
+    
+       
+    
+    public void setAttackPoints(int points){
+    this.attackPoints = points;
+    }
+    public void setDefensePoints(int points){
+    this.defensePoints = points;
+    }
+    public void setName(String name){
+    this.name = name;
+    }
+    public void setLife(int life){
+    this.life = life;
+    }
+    
     
         
     public String getName(){
@@ -49,6 +68,7 @@ abstract public class Player {
     }
    
     public void attack(Player p){
+        System.out.println("-------------------------INICIO ATAQUE------------------------------");
         System.out.println("Atacante: "+ this.toString());
         System.out.println("Defensor: "+ p.toString());
         p.hit(this.attackPoints);
@@ -57,15 +77,23 @@ abstract public class Player {
         }
         System.out.println("Atacante: "+ this.toString());
         System.out.println("Defensor: "+ p.toString());
+        System.out.println("--------------------------FIN ATAQUE-------------------------------\n");
     }
         
     protected void hit(int attackPoints){
-           System.out.print(this.name + " es golpeado con " + attackPoints + " puntos i se defiende con " + this.defensePoints + ". Vidas: "+ this.life + " - " + (attackPoints - this.defensePoints));
-           this.life = this.life - (attackPoints-this.defensePoints);
+           int dañocausado = attackPoints-this.defensePoints;
+           if (dañocausado < 0){
+           dañocausado = 0;
+           }
+           
+           System.out.print(this.name + " es golpeado con " + attackPoints + " puntos i se defiende con " + this.defensePoints + ". Vidas: "+ this.life + " - " + dañocausado);
+           
+           this.life = this.life - dañocausado;                   
            if (this.life < 0){
            this.life = 0;
            }
            System.out.println(" = " + this.life);
+           
        }
     
     
